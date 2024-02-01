@@ -28,21 +28,11 @@ export default function TvPick() {
           <h1 className='bold display-3 mb-4'>{name}</h1>
           <div dangerouslySetInnerHTML={createSummaryMarkup()} />
           <Link to={`/shows/${id}/cast`} style={{ textDecoration: "none" }} className='castButton'><b>See Cast</b></Link>
-          {language && (
-            <div><b>Language:</b> {language}</div>
-          )}
-          {runtime && (
-            <div><b>Runtime:</b> {runtime} minutes</div>
-          )}
-          {average && (
-            <div><b>Rating:</b> {average}</div>
-          )}
-          {genres.length > 0 && (
-            <div><b>Genres:</b> {genres.join(' | ')}</div>
-          )}
-          {officialSite && (
-            <Link to={officialSite} style={{ textDecoration: "none", color: "white" }}><b style={{ textDecoration: "none", color: "white" }}>Official Site:</b> <span style={{ textDecoration: "underline" }}>{officialSite}</span></Link>
-          )}
+          {language && (<div><b>Language:</b> {language}</div>)}
+          {runtime && (<div><b>Runtime:</b> {runtime} minutes</div>)}
+          {average && (<div><b>Rating:</b> {average}</div>)}
+          {genres.length > 0 && (<div><b>Genres:</b> {genres.join(' | ')}</div>)}
+          {officialSite && (<Link to={officialSite} style={{ textDecoration: "none", color: "white" }}><b style={{ textDecoration: "none", color: "white" }}>Official Site:</b> <span style={{ textDecoration: "underline" }}>{officialSite}</span></Link>)}
         </Col>
       </Row >
     </Container >

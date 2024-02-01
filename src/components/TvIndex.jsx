@@ -22,9 +22,9 @@ export default function TvIndex() {
       genresAll.push(genre)
       genresAll.unshift('All')
     })
-  })
-  const genreList = genresAll.filter((value, index) => genresAll.indexOf(value) === index)
-  // console.log(genreList)
+})
+const genreList = genresAll.filter((value, index) => genresAll.indexOf(value) === index)
+
 
   const [genrePick, setGenrePick] = useState('All')
   const [search, setSearch] = useState('')
@@ -40,7 +40,7 @@ export default function TvIndex() {
     <>
       <section className="searchContainer">
         <form onSubmit={handleSubmit}>
-        <select
+          <select
             className="genres-list"
             onChange={(e) => setSortChoice(e.target.value)}
             value={sortChoice}
@@ -52,7 +52,6 @@ export default function TvIndex() {
             </>
             }
           </select>
-
           <select
             className="genres-list"
             onChange={(e) => setGenrePick(e.target.value)}
@@ -88,12 +87,12 @@ export default function TvIndex() {
               }
               )
               .sort((a, b) => {
-                if (sortChoice === 'rating'){
+                if (sortChoice === 'rating') {
                   console.log(typeof b.rating.average)
                   return b.rating.average - a.rating.average
-                  
+
                 } else if (sortChoice === 'alphabetical') {
-               
+
                   return a.name.localeCompare(b.name)
                 }
               })
@@ -108,21 +107,15 @@ export default function TvIndex() {
                     md={3}
                     lg={2}
                     xl={2}
-                    // style={ {backgroundColor: "black"}}
                     to={`/shows/${id}`}
                   >
-                    {/* <Container>
-                      <Row sm={9} className="movietittle" style={{ backgroundImage: `url("${medium}")` }}></Row>
-                      <Row sm={3} className="movietittle">{name}</Row>
-                    </Container> */}
                     <div className="rails">
                       <img className="thumbnail" src={medium} to={`/shows/${id}`} />
                       <div className="movietittle">
-                      <p>{name}<br></br>★Rating: {show.rating.average}</p>
+                        <p>{name}<br></br>★Rating: {show.rating.average}</p>
                       </div>
                     </div>
                   </Col>
-
                 )
               })}
           </Row>
